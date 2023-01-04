@@ -2,9 +2,9 @@
 
 name: CI-CD-AWS
 env:
-  S3_NAME: 	"alvadim-github-bucket"
+  S3_NAME: "alvadim-github-bucket"
   APP_NAME: "MyFlaskApp"
-  ENV_NAME: "	Myflaskapp-env"
+  ENV_NAME: "Myflaskapp-env"
   DEPLOY_PKG_NAME: "flask_app_${{ github.sha }}.zip"
   AWS_REGION: "eu-central-1"
   
