@@ -63,9 +63,7 @@ jobs:
           
       - name: Deploy ElasticBeanstalk version
         run: |
-          aws elasticbeanstalk update-environment \ 
-          --environment-name ${{ env.ENV_NAME }} \
-          --version-label "Ver-${{ github.sha }}"
+          aws elasticbeanstalk update-environment --environment-name ${{ env.ENV_NAME }} --version-label "Ver-${{ github.sha }}"
           
           - name: Print message
             run: echo "CD pipeline complited."
