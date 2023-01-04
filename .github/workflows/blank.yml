@@ -56,16 +56,16 @@ jobs:
       - name: Create EBS application
         run: |
           aws elasticbeanstalk create-application-version \
-          --application-name ${{ env.APP_NAME }}\
-          --source-bundle S3Bucket="${{ env.S3_NAME }}", S3Key="${{ env.DEPLOY_PKG_NAME }}"\
-          --version-label "Version-${{ github.sha }}"\
+          --application-name ${{ env.APP_NAME }} \
+          --source-bundle S3Bucket="${{ env.S3_NAME }}", S3Key="${{ env.DEPLOY_PKG_NAME }}" \
+          --version-label "Ver-${{ github.sha }}" \
           --description "CommitSHA-${{ github.sha }}"
           
       - name: Deploy ElasticBeanstalk version
         run: |
-          aws elasticbeanstalk update-environment\
-          --update-environment ${{ env.ENV_NAME }}\
-          --version-label "Version-${{ github.sha }}"
+          aws elasticbeanstalk update-environment \ 
+          --update-environment ${{ env.ENV_NAME }} \
+          --version-label "Ver-${{ github.sha }}"
           
           - name: Print message
             run: echo "CD pipeline complited."
